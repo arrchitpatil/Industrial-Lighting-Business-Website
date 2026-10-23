@@ -1,0 +1,5 @@
+document.getElementById("m").onclick=()=>document.getElementById("nv").classList.toggle("open");
+var q=new URLSearchParams(location.search).get("product"),pr=document.getElementById("pr");if(q&&pr){for(var o of pr.options)if(o.text===q)pr.value=o.value||o.text}
+var f=document.getElementById("f");if(f)f.onsubmit=async function(e){e.preventDefault();var s=document.getElementById("s"),d=new FormData(f);
+if(d.get("access_key")==="YOUR_WEB3FORMS_KEY"){var b=["name","company","email","phone","product","quantity","message"].map(k=>k+": "+d.get(k)).join("\n");location.href="mailto:integralpowersol@gmail.com?subject="+encodeURIComponent("Website enquiry")+"&body="+encodeURIComponent(b);return}
+s.textContent="Sending...";try{var r=await fetch("https://api.web3forms.com/submit",{method:"POST",body:d}),j=await r.json();if(j.success){s.textContent="Thank you. We have received your enquiry and will contact you soon.";f.reset()}else throw 0}catch(x){s.textContent="Could not send. Please call 9422271837 or WhatsApp 7770003018."}}
